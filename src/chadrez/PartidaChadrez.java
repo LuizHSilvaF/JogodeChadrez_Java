@@ -1,5 +1,8 @@
 package chadrez;
 
+import chadrez.pecas.Rei;
+import chadrez.pecas.Torre;
+import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
 
 public class PartidaChadrez {
@@ -9,6 +12,7 @@ public class PartidaChadrez {
 	public PartidaChadrez()
 	{
 		tabuleiro = new Tabuleiro(8,8);
+		iniciarPartida();
 	}
 	
 	public PecasChadrez[][] pecas()
@@ -22,5 +26,11 @@ public class PartidaChadrez {
 			}
 		}
 		return mat;
+	}
+	
+	private void iniciarPartida()
+	{
+		tabuleiro.lugarPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(2,1));
+		tabuleiro.lugarPeca(new Rei (tabuleiro, Cor.PRETO), new Posicao(0,4));
 	}
 }
